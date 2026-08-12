@@ -25,8 +25,13 @@ public class LoginController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Usuario usuario){
+
+
         try {
             Usuario encontrado = service.login(usuario);
+            if (!encontrado.getActivo()) {
+                throw new RuntimeException("Usuario inactivo");
+            }
             return ResponseEntity.ok(encontrado);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
