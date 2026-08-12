@@ -66,4 +66,11 @@ public class UsuarioService {
         usuario.setActivo(false);
         repoUsu.save(usuario);
     }
+
+    public Usuario activarUsuario(Integer id){
+        Usuario usuario = repoUsu.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        usuario.setActivo(true);
+        return repoUsu.save(usuario);
+    }
 }

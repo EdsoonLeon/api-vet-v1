@@ -41,6 +41,16 @@ public class UsuarioController {
         }
     }
 
+    @PatchMapping("/{id}/activar")
+    public ResponseEntity<?> activarUsuario(@PathVariable Integer id){
+        try {
+            Usuario usuario = service.activarUsuario(id);
+            return ResponseEntity.ok(usuario);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminarUsuario(@PathVariable Integer id){
         try {

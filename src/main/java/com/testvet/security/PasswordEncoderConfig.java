@@ -27,7 +27,13 @@ public class PasswordEncoderConfig {
                         .requestMatchers(HttpMethod.POST, "/api/login/login", "/api/login/registrar").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/usuarios/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/api/usuarios/**").permitAll()
+                        .requestMatchers(HttpMethod.PATCH, "/api/usuarios/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/usuarios/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/clientes/registrar").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/clientes/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/api/clientes/**").permitAll()
+                        .requestMatchers(HttpMethod.PATCH, "/api/clientes/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/api/clientes/**").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }
@@ -36,7 +42,7 @@ public class PasswordEncoderConfig {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://localhost:4200"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
