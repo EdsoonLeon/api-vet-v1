@@ -28,7 +28,7 @@ public class ClienteController {
 
     @GetMapping
     public ResponseEntity<?> listarClientes(){
-        List<Cliente> clientes = service.listarClientesActivos();
+        List<Cliente> clientes = service.listarClientes();
         return ResponseEntity.ok(clientes);
     }
 

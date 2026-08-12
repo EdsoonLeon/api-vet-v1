@@ -28,9 +28,10 @@ public class MascotaController {
 
     @GetMapping
     public ResponseEntity<?> listarMascotas(){
-        List<Mascota> mascotas = service.listarMascotas();
+        List<Mascota> mascotas = service.listarTodasMascotas();
         return ResponseEntity.ok(mascotas);
     }
+
 
     @GetMapping("/cliente/{clienteId}")
     public ResponseEntity<?> listarPorCliente(@PathVariable Integer clienteId){

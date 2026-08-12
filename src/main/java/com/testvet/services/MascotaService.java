@@ -26,6 +26,9 @@ public class MascotaService {
         nueva.setCliente(cliente);
         return repoMascota.save(nueva);
     }
+    public List<Mascota> listarTodasMascotas(){
+        return repoMascota.findAll();
+    }
 
     public List<Mascota> listarMascotas(){
         return repoMascota.findByActivoTrue();
