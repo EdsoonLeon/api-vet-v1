@@ -53,6 +53,7 @@ public class PasswordEncoderConfig {
                         .requestMatchers(HttpMethod.GET, "/api/consultas/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/api/consultas/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/api/consultas/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/roles").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }
